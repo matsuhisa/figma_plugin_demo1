@@ -1,0 +1,17 @@
+
+<p>file_key: <input id="file_key" type="text" value=""></p>
+<button id="create">Create</button>
+<button id="cancel">Cancel</button>
+<script>
+
+document.getElementById('create').onclick = () => {
+  const textbox = document.getElementById('file_key');
+  const file_key = textbox.value;
+  parent.postMessage({ pluginMessage: { type: 'create-shapes', file_key } }, '*')
+}
+
+document.getElementById('cancel').onclick = () => {
+  parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+}
+
+</script>
